@@ -1,2 +1,2 @@
 all:
-	g++ *.cpp -o cowsay
+	g++ *.cpp -o cowsay_t

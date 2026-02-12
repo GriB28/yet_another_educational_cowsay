@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ ! -f "build/" ]]; then
+if [[ ! -d "/build/" ]]; then
 	mkdir build/
 fi
 
