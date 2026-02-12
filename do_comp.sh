@@ -1,8 +1,9 @@
 #!/bin/bash
 
-if [[ ! -d "/build/" ]]; then
-	mkdir build/
+if [ -d "build/" ]; then
+	rm -rf build/
 fi
+mkdir build/
 
 
 g++ ASCIIPicture.cpp -E -o build/ASCIIPicture_.cpp
