@@ -26,24 +26,24 @@ uninstall:
 	rm -rf /usr/share/$(TARGET)
 
 
-Parser.o: Parser.cpp Parser.hpp build_dir
+.build/Parser.o: Parser.cpp Parser.hpp build_dir
 	$(CXX) $(CXX_FLAGS) -c Parser.cpp -o .build/Parser.o
 
-Field.o: Field.cpp Field.hpp build_dir
+.build/Field.o: Field.cpp Field.hpp build_dir
 	$(CXX) $(CXX_FLAGS) -c Field.cpp -o .build/Field.o
 
-Cow.o: Cow.cpp Cow.hpp build_dir
+.build/Cow.o: Cow.cpp Cow.hpp build_dir
 	$(CXX) $(CXX_FLAGS) -c Cow.cpp -o .build/Cow.o
 
-Cloud.o: Cloud.cpp Cloud.hpp build_dir
+.build/Cloud.o: Cloud.cpp Cloud.hpp build_dir
 	$(CXX) $(CXX_FLAGS) -c Cloud.cpp -o .build/Cloud.o
 
-ASCIIPicture.o: ASCIIPicture.cpp ASCIIPicture.hpp build_dir
+.build/ASCIIPicture.o: ASCIIPicture.cpp ASCIIPicture.hpp build_dir
 	$(CXX) $(CXX_FLAGS) -c ASCIIPicture.cpp -o .build/ASCIIPicture.o
 
-main.o: main.cpp build_dir
+.build/main.o: main.cpp build_dir
 	$(CXX) $(CXX_FLAGS) -c main.cpp -o .build/main.o
 
 
-$(TARGET): main.o ASCIIPicture.o Cloud.o Cow.o Field.o Parser.o ASCIIPicture.hpp Cloud.hpp Cow.hpp Field.hpp Parser.hpp
+$(TARGET): .build/main.o .build/ASCIIPicture.o .build/Cloud.o .build/Cow.o .build/Field.o .build/Parser.o ASCIIPicture.hpp Cloud.hpp Cow.hpp Field.hpp Parser.hpp
 	$(CXX) $(CXX_FLAGS) -o .build/$(TARGET) .build/*.o
