@@ -11,8 +11,13 @@ ASCIIPicture::ASCIIPicture(string fname)
     ifstream file(fname);
     if (!file.is_open())
     {
-        cout << "Picture " << fname << " is nowhere to be found." << endl;
-        exit(0);
+		file.close();
+        file.open("/usr/share/yae_cowsay/" + fname);
+        if (!file.is_open())
+        {
+            cout << "Picture " << fname << " is nowhere to be found." << endl;
+            exit(0);
+        }
     }
     char buffer[200];
     while (file.getline(buffer, 200, '\n'))
